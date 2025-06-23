@@ -4,7 +4,7 @@ metadata:
   name: simple-web-app-service
 spec:
   selector:
-    app: simple-web-app # Must match the pod labels
+    app: simple-web-app-pod # Must match the pod labels
   type: ClusterIP # Change this to NodePort or LoadBalancer as needed
   ports:
     - port: 80 # Port exposed by the service

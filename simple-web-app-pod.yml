@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: simple-web-app-pod
+spec:
+  containers:
+    - name: simple-web-app-container
+      image: trialz0d1xq.jfrog.io/docker-example-docker-local/simple-web-app:latest
+      ports:
+        - containerPort: 8080
+  imagePullSecrets:
+    - name: jfrog-regcred

@@ -38,7 +38,8 @@ app.use(express.json());
 app.post('/api/users', async (req, res) => {
   try {
     const { username, password } = req.body;
-    
+    console.log('Received user data:', { username, password });
+    console.log(pool);
     // Insert user data
     const result = await pool.query(
       'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id',

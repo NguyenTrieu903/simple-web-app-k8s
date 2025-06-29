@@ -2,11 +2,11 @@
 
 - Run postgres pod before run backend-pod
 
-# Cấu hình để sử dụng Docker daemon của Minikube
+# Config to use image local
 
 eval $(minikube docker-env)
 
-# Build lại image (bây giờ sẽ được lưu trong Docker daemon của Minikube)
+# Build again image
 
 docker build -t simple-web-app-backend:local ./backend
 

@@ -1,16 +1,21 @@
 # run postgres and pgadmin with kubenetes
 
 kubectl apply -f postgres-secret.yml
+
 kubectl apply -f postgres-configmap.yml
+
 kubectl apply -f postgres-deploy.yml
+
 kubectl apply -f pgadmin-secret.yml
+
 kubectl apply -f pgadmin-deploy.yml
+
 minikube service pgadmin -n kube
-access ui at: http://192.168.49.2:30200/browser/ with username: admin@admin.com, password: mypwd
+access ui at: http://192.168.49.2:30200/browser/ with username: `admin@admin.com`, password: `mypwd`
 
 After register server with information:
 
-- host: 192.168.49.2
-- port: 30432
-- username: root
-- password: admin
+- host: **192.168.49.2**
+- port: **30432**
+- username: **root**
+- password: **admin**

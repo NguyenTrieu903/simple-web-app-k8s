@@ -12,10 +12,14 @@ Simply open `index.html` in a web browser.
 
 #### Building and Running Locally
 
+#### Config to use image local
+ ```bash
+eval $(minikube docker-env)
+```
+
 1. Build the Docker image:
 
    ```bash
-   eval $(minikube docker-env)
    docker build -t simple-web-app .
    ```
 

@@ -13,7 +13,8 @@ Simply open `index.html` in a web browser.
 #### Building and Running Locally
 
 #### Config to use image local
- ```bash
+
+```bash
 eval $(minikube docker-env)
 ```
 
@@ -60,6 +61,7 @@ docker pull trialz0d1xq.jfrog.io/docker-example-docker-local/simple-web-app:late
 ### Setup Minikube
 
 ```bash
+minikube delete
 minikube start --driver=docker --wait=all
 ```
 

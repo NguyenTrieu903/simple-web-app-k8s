@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: simple-web-app-service
+  namespace: kube
 spec:
   selector:
     app: simple-web-app # Must match the pod labels

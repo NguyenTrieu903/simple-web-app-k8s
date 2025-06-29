@@ -15,6 +15,7 @@ Simply open `index.html` in a web browser.
 1. Build the Docker image:
 
    ```bash
+   eval $(minikube docker-env)
    docker build -t simple-web-app .
    ```
 
@@ -55,7 +56,7 @@ docker pull trialz0d1xq.jfrog.io/docker-example-docker-local/simple-web-app:late
 ### Setup Minikube
 
 ```bash
-minikube start --driver=docker
+minikube start --driver=docker --wait=all
 ```
 
 ### Registry Credentials
@@ -73,6 +74,11 @@ kubectl create secret docker-registry jfrog-regcred \
   --docker-password=<your_password> \
   --docker-email=nguyentrieutptp@gmail.com
 ```
+
+### Create namespace
+
+- kubectl create namespace kube
+- kubectl config set-context --current --namespace=kube
 
 ### Deploying as a Pod
 
@@ -95,7 +101,7 @@ kubectl expose deployment simple-web-app-deployment \
   --type=NodePort \
   --port=8080 \
   --target-port=80
-minikube service simple-web-app-deployment
+minikube service simple-web-app-deployment -n kube
 ```
 
 ### Creating a Service

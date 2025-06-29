@@ -6,7 +6,8 @@ metadata:
 spec:
   containers:
     - name: simple-web-app-container
-      image: simple-web-app:local
-      imagePullPolicy: Never
+      image: trialz0d1xq.jfrog.io/docker-example-docker-local/simple-web-app:latest
       ports:
         - containerPort: 8080
+  imagePullSecrets:
+    - name: jfrog-regcred

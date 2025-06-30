@@ -12,16 +12,18 @@ Simply open `index.html` in a web browser.
 
 #### Building and Running Locally
 
-#### Config to use image local
+#### Note: Run
 
 ```bash
 eval $(minikube docker-env)
 ```
 
+before build docker iamge
+
 1. Build the Docker image:
 
    ```bash
-   docker build -t simple-web-app .
+   docker build -t simple-web-app:local .
    ```
 
 2. Run the Docker container:
@@ -62,7 +64,15 @@ docker pull trialz0d1xq.jfrog.io/docker-example-docker-local/simple-web-app:late
 
 ```bash
 minikube delete
-minikube start --driver=docker --wait=all
+minikube start --driver=docker or minikube start --driver=docker --wait=all
+```
+
+#### Config to use image local and create namespace first
+
+```bash
+eval $(minikube docker-env)
+kubectl create namespace kube
+kubectl config set-context --current --namespace=kube
 ```
 
 ### Registry Credentials
@@ -80,11 +90,6 @@ kubectl create secret docker-registry jfrog-regcred \
   --docker-password=<your_password> \
   --docker-email=nguyentrieutptp@gmail.com
 ```
-
-### Create namespace
-
-- kubectl create namespace kube
-- kubectl config set-context --current --namespace=kube
 
 ### Deploying as a Pod
 
@@ -115,28 +120,4 @@ minikube service simple-web-app-deployment -n kube
 ```bash
 kubectl apply -f simple-web-app-service.yml
 kubectl describe svc simple-web-app-service
-```
-
-### Setting up Ingress
-
-```bash
-# Enable ingress addon
-minikube addons enable ingress
-
-# Apply ingress configuration
-kubectl apply -f simple-web-app-ingress.yml
-
-# Get Minikube IP
-minikube ip
-
-# Add entry to hosts file
-sudo nano /etc/hosts
-# Add: 192.168.49.2  simple-web-app.local
-
-# Verify ingress status
-kubectl get ingress
-kubectl describe ingress simple-web-app-ingress
-
-# Access application
-# http://simple-web-app.local
 ```

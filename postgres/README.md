@@ -1,5 +1,7 @@
 ### Run postgres and pgadmin with kubenetes
 
+- kubectl config set-context --current --namespace=kube
+
 - kubectl apply -f postgres-secret.yml
 
 - kubectl apply -f postgres-configmap.yml
@@ -12,9 +14,9 @@
 
 - minikube service pgadmin -n kube
 
-### Access ui at: http://192.168.49.2:30200/browser/ 
+### Access ui at: http://192.168.49.2:30200/browser/
 
-- username: `admin@admin.com` 
+- username: `admin@admin.com`
 - password: `mypwd`
 
 ### After register server with information:

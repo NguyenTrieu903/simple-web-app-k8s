@@ -49,19 +49,16 @@ app.post('/api/users', async (req, res) => {
     res.status(201).json({
       success: true,
       userId: result.rows[0].id,
-      message: 'User data saved successfully'
     });
   } catch (err) {
     console.error('Error saving user data:', err);
-    res.status(500).json({
-      success: false,
-      message: 'Error saving user data'
-    });
+    res.status(500).json({ success: false, error: 'Failed to save user data' });
   }
 });
 
+// Health check endpoint
 app.get('/api/health', (req, res) => {
-  res.status(200).json({ status: 'healthy' });
+  res.status(200).json({ status: 'ok', message: 'Backend service is running' });
 });
 
 app.listen(PORT, () => {
